@@ -1,10 +1,14 @@
 // import Image from "next/image";
 
+import { UserButton } from "@clerk/nextjs";
 
-export default function Home() {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const SetupPage = () => {
   return (
     <div className="p-4">
-      <button className="btn btn-success">Success</button>
+      <UserButton afterSwitchSessionUrl="/"></UserButton>
     </div>
   );
 }
+
+export default SetupPage;
