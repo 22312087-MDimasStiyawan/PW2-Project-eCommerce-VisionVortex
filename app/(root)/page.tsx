@@ -1,12 +1,24 @@
-// import Image from "next/image";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+"use client";
 
-import { UserButton } from "@clerk/nextjs";
+import { useEffect } from "react";
+import { useStoreModal } from "@/hooks/use-store-modal";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+
 const SetupPage = () => {
+  const onOpen = useStoreModal((state) => state.onOpen);
+  const isOpen = useStoreModal((state) => state.isOpen);
+
+  useEffect(() => {
+    if (!isOpen){
+      onOpen();
+    }
+  }, [isOpen, onOpen]);
+
   return (
     <div className="p-4">
-      <UserButton afterSwitchSessionUrl="/"></UserButton>
+      Root Page
     </div>
   );
 }
